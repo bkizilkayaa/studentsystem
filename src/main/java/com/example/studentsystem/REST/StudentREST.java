@@ -27,7 +27,7 @@ public class StudentREST {
             return new Answer<>(false,"can't get student list",answer);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     Answer<Student> getStudent(@PathVariable int id){
         Student answer= studentService.getStudent(id);
         if(answer!=null)
