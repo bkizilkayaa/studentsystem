@@ -55,7 +55,7 @@ public class StudentService {
     public List<Student> getStudentList(){
         var list=studentRepository.findAll();
         List<Student> studentList= new ArrayList<>();
-        for(var ob:studentList){
+        for(var ob:list){
             studentList.add(ob);
         }
         if(studentList.size()>0){
