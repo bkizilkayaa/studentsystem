@@ -1,5 +1,6 @@
 package com.example.studentsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +24,10 @@ public class Student {
     @Column(name = "email")
     private String email;
 
-    @ManyToMany(mappedBy = "students")
+    @ManyToMany
+    @JsonManagedReference
+    /*@JoinTable(name="lecture_students",joinColumns = @JoinColumn(name="lectures_id"),
+            inverseJoinColumns = @JoinColumn(name="students_id"))*/
     List<Lecture> lectures;
 
     public void addLecture(Lecture lecture) {

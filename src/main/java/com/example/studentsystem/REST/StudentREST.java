@@ -1,7 +1,10 @@
 package com.example.studentsystem.REST;
 
 import com.example.studentsystem.model.Answer;
+import com.example.studentsystem.model.Lecture;
 import com.example.studentsystem.model.Student;
+import com.example.studentsystem.repository.LectureRepository;
+import com.example.studentsystem.repository.StudentRepository;
 import com.example.studentsystem.service.StudentLectureImplService;
 import com.example.studentsystem.service.StudentService;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +15,8 @@ import java.util.List;
 @RequestMapping("/students")
 public class StudentREST {
     private StudentService studentService;
+    private LectureRepository lectureRepository;
+    private StudentRepository studentRepository;
     private StudentLectureImplService studentLectureImplService;
 
     public StudentREST(StudentService studentService, StudentLectureImplService studentLectureImplService) {
@@ -64,14 +69,15 @@ public class StudentREST {
     }
 
 
-    @PutMapping("/{studentId}/lectures/{lectureId}")
+    @PostMapping("/{studentId}/lectures/{lectureId}")
     Answer<Student> addLectureToStudent(@PathVariable int studentId,@PathVariable int lectureId){
-        var answer=studentLectureImplService.addLectureToStudent(studentId,lectureId);
+       var answer=studentLectureImplService.addLectureToStudent(studentId,lectureId);
         if(answer!=null)
             return new Answer<>(true,"",answer);
         else
             return new Answer<>(false,"can't add lecture to student ",answer);
     }
+
 
 
 

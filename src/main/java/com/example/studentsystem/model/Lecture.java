@@ -1,5 +1,7 @@
 package com.example.studentsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,8 +24,8 @@ public class Lecture {
     @Column(name="lecture_name")
     private String lectureName;
 
-    @ManyToMany
-/*    @JoinTable(name="lecture_students",joinColumns = @JoinColumn(name="lectures_id"),
-     inverseJoinColumns = @JoinColumn(name="students_id"))*/
+
+    @ManyToMany(mappedBy = "lectures")
+    @JsonBackReference
     List<Student> students;
 }
