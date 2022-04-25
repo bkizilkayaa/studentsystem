@@ -27,7 +27,7 @@ public class StudentREST {
             return new Answer<>(false,"can't get student list",answer);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     Answer<Student> getStudent(@PathVariable int id){
         Student answer= studentService.getStudent(id);
         if(answer!=null)
@@ -64,7 +64,7 @@ public class StudentREST {
     }
 
 
-    @PostMapping("/{studentId}/Lecture/{lectureId}")
+    @PutMapping("/{studentId}/lectures/{lectureId}")
     Answer<Student> addLectureToStudent(@PathVariable int studentId,@PathVariable int lectureId){
         var answer=studentLectureImplService.addLectureToStudent(studentId,lectureId);
         if(answer!=null)

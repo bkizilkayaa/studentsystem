@@ -1,5 +1,7 @@
 package com.example.studentsystem.service;
 
+
+import com.example.studentsystem.model.Lecture;
 import com.example.studentsystem.model.Student;
 import com.example.studentsystem.repository.LectureRepository;
 import com.example.studentsystem.repository.StudentRepository;

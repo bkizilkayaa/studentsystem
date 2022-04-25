@@ -53,7 +53,7 @@ public class LectureService {
     public List<Lecture> getLectureList(){
         var list=lectureRepository.findAll();
         List<Lecture> lectureList= new ArrayList<>();
-        for(var ob:lectureList){
+        for(var ob:list){
             lectureList.add(ob);
         }
         if(lectureList.size()>0){

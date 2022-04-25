@@ -23,5 +23,7 @@ public class Lecture {
     private String lectureName;
 
     @ManyToMany
+/*    @JoinTable(name="lecture_students",joinColumns = @JoinColumn(name="lectures_id"),
+     inverseJoinColumns = @JoinColumn(name="students_id"))*/
     List<Student> students;
 }
