@@ -1,10 +1,7 @@
 package com.example.studentsystem.REST;
 
 import com.example.studentsystem.model.Answer;
-import com.example.studentsystem.model.Lecture;
 import com.example.studentsystem.model.Student;
-import com.example.studentsystem.repository.LectureRepository;
-import com.example.studentsystem.repository.StudentRepository;
 import com.example.studentsystem.service.StudentLectureImplService;
 import com.example.studentsystem.service.StudentService;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +10,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/students")
+@CrossOrigin
 public class StudentREST {
     private StudentService studentService;
-    private LectureRepository lectureRepository;
-    private StudentRepository studentRepository;
     private StudentLectureImplService studentLectureImplService;
 
     public StudentREST(StudentService studentService, StudentLectureImplService studentLectureImplService) {
@@ -38,7 +34,7 @@ public class StudentREST {
         if(answer!=null)
             return new Answer<>(true,"",answer);
         else
-            return new Answer<>(false,"can't get student by id ",answer);
+            return new Answer<>(false,"can't get student by id ",null);
     }
 
     @PostMapping("/")
@@ -62,7 +58,7 @@ public class StudentREST {
     @DeleteMapping("/{id}")
     Answer<Boolean> deleteStudent(@PathVariable int id){
         Boolean answer=studentService.deleteStudent(id);
-        if(answer!=false)
+        if(answer)
             return new Answer<>(true,"",answer);
         else
             return new Answer<>(false,"can't delete student ",answer);

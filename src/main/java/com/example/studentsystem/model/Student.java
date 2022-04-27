@@ -1,5 +1,6 @@
 package com.example.studentsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,7 +26,7 @@ public class Student {
     private String email;
 
     @ManyToMany
-    @JsonManagedReference
+    @JsonIgnore
     /*@JoinTable(name="lecture_students",joinColumns = @JoinColumn(name="lectures_id"),
             inverseJoinColumns = @JoinColumn(name="students_id"))*/
     List<Lecture> lectures;
