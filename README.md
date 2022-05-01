@@ -4,7 +4,7 @@
         i complete my first fullstack app by using technologies : </br>
         -Spring boot </br>
         -Spring mvc  </br>
-        -Spring data jpa </br>
+        -JPA/Hibernate </br>
         -Restful web service API </br>
         -MySQL </br> 
         for frontend side </br>
